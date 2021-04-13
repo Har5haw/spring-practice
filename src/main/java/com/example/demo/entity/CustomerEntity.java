@@ -1,8 +1,7 @@
 package com.example.demo.entity;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,25 +9,15 @@ import javax.persistence.*;
 @Table(name = "customer")
 @Getter
 @Setter
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
-    private String firstName;
-    private String lastName;
-    private Integer freePasses;
-    private String postalCode;
-    private String courseCode;
-
-    public CustomerEntity(){
-
-    }
-
-    public CustomerEntity(String firstName, String lastName, Integer freePasses, String postalCode, String courseCode) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.freePasses = freePasses;
-        this.postalCode = postalCode;
-        this.courseCode = courseCode;
-    }
+    @NonNull private String firstName;
+    @NonNull private String lastName;
+    @NonNull private Integer freePasses;
+    @NonNull private String postalCode;
+    @NonNull private String courseCode;
 }
