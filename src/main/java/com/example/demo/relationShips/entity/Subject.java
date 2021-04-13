@@ -17,7 +17,6 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long subjectId;
 
-
     @NonNull private String name;
 
     @ManyToOne(cascade = {
