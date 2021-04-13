@@ -14,9 +14,14 @@ public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
+
     @NonNull private String firstName;
+
     @NonNull private String lastName;
+
     @NonNull private Integer freePasses;
+
     @NonNull private String postalCode;
+
     @NonNull private String courseCode;
 }
