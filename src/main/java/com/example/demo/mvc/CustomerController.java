@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 
 import java.util.List;
 
-
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
@@ -33,7 +32,7 @@ public class CustomerController {
 	@RequestMapping("/showForm")
 	public String showForm(Model model) {
 		model.addAttribute("customer", new Customer());
-		return "customer-form";
+		return "customer";
 	}
 	
 	@RequestMapping("/processForm")
@@ -42,7 +41,7 @@ public class CustomerController {
 			BindingResult bindingResult,
 			Model model) {
 		if(bindingResult.hasErrors()) {
-			return "customer-form";
+			return "customer";
 		}else {
 			CustomerEntity customerEntity = new CustomerEntity(
 					theCustomer.getFirstName(),
@@ -60,5 +59,11 @@ public class CustomerController {
 
 			return "customer-confirmation";
 		}
+	}
+
+	@RequestMapping("/getError")
+	public String getError(){
+		int i = 2/0;
+		return "nothing";
 	}
 }
